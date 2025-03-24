@@ -66,13 +66,11 @@ def load_data(city, month, day):
     # Converting the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
 
-    
    
     # Extracting month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
 
-    
     
     # Filtering by month if applicable
     if month != 'all':
@@ -219,12 +217,14 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('='*50)
 
+def get_and_load_data():
+    city, month, day = get_filters()
+    return  load_data(city, month, day)
+
 
 def main():
     while True:
-        city, month, day = get_filters()
-        df = load_data(city, month, day)
-
+        df = get_and_load_data()
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
