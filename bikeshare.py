@@ -221,16 +221,19 @@ def get_and_load_data():
     city, month, day = get_filters()
     return  load_data(city, month, day)
 
+def get_stats(df):
+    time_stats(df)
+    station_stats(df)
+    trip_duration_stats(df)
+    user_stats(df)
+
+
 
 def main():
     while True:
         df = get_and_load_data()
-        time_stats(df)
-        station_stats(df)
-        trip_duration_stats(df)
-        user_stats(df)
-        
-        
+        get_stats(df)
+
         #To prompt the user whether they would like want to see the raw data
         enter = ['yes','no']
         user_input = input('Would you like to see more data? (Enter:Yes/No).\n')
