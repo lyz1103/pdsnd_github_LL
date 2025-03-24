@@ -18,6 +18,7 @@ In this project, you will make use of Python to explore data related to bike sha
    * chicago.csv
    * new_york_city.csv
    * washington.csv
+3. all analytical results use these three files as raw data
 
 ### Credits
 * [Pandas documentation is very usefull.](https://pandas.pydata.org/docs/)
